@@ -101,8 +101,23 @@ async function fetchData(speciesCode){
         console.log("species code: " + speciesCode);
         console.log("region code: " + regionCode);
 
+        // Days back: 2 or 6?
+        let daysBack = 2;
+        let days = document.getElementsByName("daysBack");
+ 
+        for (i = 0; i < days.length; i++) {
+            if (days[i].checked){
+                daysBack = days[i].value;
+            }
+        }
+
+        // console.log("I got here. Days back = " + daysBack)
+
         // Limited to 2 days ago (includes today).
-        const apiUrl = "https://api.ebird.org/v2/data/obs/" + regionCode + "/recent/" + speciesCode + "?back=2";
+        // const apiUrl = "https://api.ebird.org/v2/data/obs/" + regionCode + "/recent/" + speciesCode + "?back=2";
+        const apiUrl = "https://api.ebird.org/v2/data/obs/" + regionCode + "/recent/" + speciesCode + "?back=" + daysBack;
+
+        console.log(apiUrl);
 
         const requestOptions = {
             method: "GET",
@@ -202,6 +217,22 @@ function validateEntry(){
             messageDiv.innerHTML = "- No bird name was found. -";
             messageDiv.style.display = "block";
         }
+        else{ // A bird name was found using the entry. 
+            // Disable county, 
+            // disable name input and 
+            // hide Search button.
+            document.getElementById("county").disabled = true;
+            document.getElementById("birdNameInput").disabled = true;
+            document.getElementById("searchForBirds").style.display = "none";
+
+            // Disable the radio buttons.
+            var radios = document.getElementsByName("daysBack");
+
+            for (var i=0, iLen=radios.length; i<iLen; i++) {
+              radios[i].disabled = true;
+            } 
+
+        }
 
     }
 
@@ -244,22 +275,41 @@ function clearDataList(){
 }
 
 
+function enableEntryFields(){
+    // Enable county, 
+    // Enable name input and 
+    // Show Search button.
+    document.getElementById("county").disabled = false;
+    document.getElementById("birdNameInput").disabled = false;
+    document.getElementById("searchForBirds").style.display = "block"; 
+
+    // Enable the radio buttons.
+    var radios = document.getElementsByName("daysBack");
+
+    for (var i=0, iLen=radios.length; i<iLen; i++) {
+        radios[i].disabled = false;
+    } 
+}
+
+
 const searchButton = document.getElementById("searchForBirds");
-// Clear the message div. Clear the bird name list. Validate the entry. 
-searchButton.addEventListener("click", clearMessage);
-searchButton.addEventListener("click", clearBirdNameList);
-searchButton.addEventListener("click", validateEntry);
-searchButton.addEventListener("click", clearDataListTitle);
-searchButton.addEventListener("click", clearDataList);
+    // Clear the message div. Clear the bird name list. Validate the entry. 
+    searchButton.addEventListener("click", clearMessage);
+    searchButton.addEventListener("click", clearBirdNameList);
+    searchButton.addEventListener("click", validateEntry);
+    searchButton.addEventListener("click", clearDataListTitle);
+    searchButton.addEventListener("click", clearDataList);
 
 
 const startOverButton = document.getElementById("startOver");
-// Clear the input box and reset the placeholder. Clear the message div. Clear the bird name list.
-startOverButton.addEventListener("click", clearInputBox);
-startOverButton.addEventListener("click", clearMessage);
-startOverButton.addEventListener("click", clearBirdNameList);
-startOverButton.addEventListener("click", clearDataListTitle);
-startOverButton.addEventListener("click", clearDataList);
+    // Clear the input box and reset the placeholder. Clear the message div. Clear the bird name list.
+    startOverButton.addEventListener("click", clearInputBox);
+    startOverButton.addEventListener("click", clearMessage);
+    startOverButton.addEventListener("click", clearBirdNameList);
+    startOverButton.addEventListener("click", clearDataListTitle);
+    startOverButton.addEventListener("click", clearDataList);
+    startOverButton.addEventListener("click", enableEntryFields);
+           
 
 
 

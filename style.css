@@ -41,7 +41,8 @@ body{
     padding: 7px 20px;
     border-radius: 10px;
     /* background-color: #606060; */
-    background-color:#007F7F;
+    /* background-color:#007F7F; */
+    background-color:#FF5733;
     border: 3px solid;
     border-top-color: lightslategray;
     border-left-color: lightslategray;
@@ -52,6 +53,7 @@ body{
     margin-bottom: 10px;
     width: 150px;
     text-align: center;
+    display: block;
   }
 
   /* For the bird name text input box. */
