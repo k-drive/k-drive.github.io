@@ -113,8 +113,8 @@ body{
     color: black;
     background-color: #FAEED1;
     border: 2px solid #607274;
-    width: 340px;
-    margin: auto; 
+    /* width: 340px; */
+    /* margin: auto;  */
   }
 
 /* This is the parent div of the data and checklist links. */
@@ -122,9 +122,9 @@ body{
   display: flex;
   flex-direction: column;
   text-align: left;
-  width: 380px;
+  /* width: 380px; */
   align-items:left;
-  margin: auto;
+  /* margin: auto; */
 }
 
 
