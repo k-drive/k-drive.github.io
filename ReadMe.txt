@@ -1,41 +1,16 @@
 
-This version of the Recent Bird Sightings web page for a phone screen is mostly black, white and gray with orange buttons.
+This project accesses the eBird API for recent sightings in four counties in Ohio.
+The user can choose between finding checklists for today and the past two days or the past 6 days.
+It allows the user to search by entering a partial name or a full name of a bird. 
 
-I used the approach of starting with black and white, and then adding a little bit of color.
+I wanted to create something that I could use on my phone to quickly check to see if a species was recently seen. I do like the eBird website's Explore Species Map. But, it takes a long time to enter criteria. There are a number of steps. You must narrow down to the month. You can't narrow down to a few days. It searches for every checklist in the world. Then, you must tap on a tiny marker to get a list of sightings. Then, you must select a sightng to see the checklist. I want to look for sightings in the four counties nearby quickly. 
 
-This version will look the same on a phone or computer. The previous version won't work well on larger screen. Some of the elements use "auto" for the width which makes them spread across the whole screen.
-
-
-Updates to this version:
-
-On Search button click:
-If no bird name found: no changes.
-
-If bird name found: 
-[ done ] - Disable county, 
-[ done ] - Disable name input and 
-[ done ] - hide Search button.
-
-On Start Over button click to adjust for Search button behavior changes:
-[ done ] - Enable county, name input and show Search button.
+If a species has been reported recently, my project will show the date, time, location and number reported. It will also provide a link to the checklist. That's exactly what I want/need.
 
 
-Try this:
 
-Change 2 days back to: 
-Radio buttons for 2 and 6 days back. 
-Horizontally. 
 
-[ done ] - Interface changes
 
-Code changes to Search button behavior:
-    [ done ] - Disable radio buttons.
-    [ done ] - Get the value selected if a bird name is valid.
-    [ done ] - Apply it to the request to the API.
 
-Code changes to Start Over button behavior:
-    [ done ] - Enable radion buttons.
-
-- - - - 
 
 - - - - 

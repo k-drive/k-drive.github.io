@@ -41,8 +41,8 @@ body{
     padding: 7px 20px;
     border-radius: 10px;
     /* background-color: #606060; */
-    /* background-color:#007F7F; */
-    background-color:#FF5733;
+    /* background-color:#007F7F;  */
+    background-color: darkorange; 
     border: 3px solid;
     border-top-color: lightslategray;
     border-left-color: lightslategray;
@@ -51,7 +51,7 @@ body{
     color: white;
     margin: auto;
     margin-bottom: 10px;
-    width: 150px;
+    width: 170px;
     text-align: center;
     display: block;
   }
@@ -104,17 +104,18 @@ body{
   }
 
   /* When a bird name is selected, the search list results disappear and the selected name is changed to this title style. */
-#dataTitle{
-  text-align: center;
-  font-size: 14pt;
-  font-weight:bold;
-  padding: 5px;
-  color: black;
-  background-color: #FAEED1;
-  border: 2px solid #607274;
-  width: 340px;
-  margin: auto; 
-}
+  #dataTitle{
+    text-align: center;
+    font-size: 14pt;
+    /* font-weight:bold; */
+    font-weight:500;
+    padding: 5px;
+    color: black;
+    background-color: #FAEED1;
+    border: 2px solid #607274;
+    width: 340px;
+    margin: auto; 
+  }
 
 /* This is the parent div of the data and checklist links. */
 #dataList{

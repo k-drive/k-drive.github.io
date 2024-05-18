@@ -159,10 +159,26 @@ function clearAllCreateTitle(birdCode, idx){
     clearMessage();
     clearBirdNameList();
 
+    // Display the Back to Bird Name List button:
+    let backToNames = document.getElementById("backToBirdNames");
+    backToNames.style.display = "block";
+
     // Display the name in the title div element.
     let birdNameTitle = document.getElementById("dataTitle");
     birdNameTitle.innerHTML = ohioBirdNames[idx];
     birdNameTitle.style.display = "block";
+
+
+    // Disable the radio buttons.
+    var radios = document.getElementsByName("daysBack");
+
+    for (var i=0, iLen=radios.length; i<iLen; i++) {
+        radios[i].disabled = true;
+    } 
+
+    // Disable the county drop down list.
+    document.getElementById("county").disabled = true;
+
 
     // Call the fetch data function:
     fetchData(birdCode);
@@ -196,7 +212,9 @@ function validateEntry(){
     console.log("]" + entry + "[");
 
     if(entry === ""){
-        console.log("Please make an entry.");   // Don't do anything if nothing is entered.
+        console.log("Please make an entry.");   
+        // Don't do anything if nothing is entered.
+        // The text in the text entry box shows "Please enter a bird name.""
         
     }
     else{
@@ -212,8 +230,7 @@ function validateEntry(){
         }
 
         if(!found){
-            console.log("Change the message that no bird name was found.")
-            let messageDiv = document.getElementById("message")
+            let messageDiv = document.getElementById("message");
             messageDiv.innerHTML = "- No bird name was found. -";
             messageDiv.style.display = "block";
         }
@@ -221,16 +238,9 @@ function validateEntry(){
             // Disable county, 
             // disable name input and 
             // hide Search button.
-            document.getElementById("county").disabled = true;
+            // document.getElementById("county").disabled = true; // This should be enabled when a valid name is found and a list is generated.
             document.getElementById("birdNameInput").disabled = true;
             document.getElementById("searchForBirds").style.display = "none";
-
-            // Disable the radio buttons.
-            var radios = document.getElementsByName("daysBack");
-
-            for (var i=0, iLen=radios.length; i<iLen; i++) {
-              radios[i].disabled = true;
-            } 
 
         }
 
@@ -289,6 +299,47 @@ function enableEntryFields(){
     for (var i=0, iLen=radios.length; i<iLen; i++) {
         radios[i].disabled = false;
     } 
+
+    let backToBirdNamesButton = document.getElementById("backToBirdNames")
+    backToBirdNamesButton.style.display = "none";
+
+}
+
+function backToBirdNamesButtonClicked(){
+    let backToBirdNamesButton = document.getElementById("backToBirdNames")
+    backToBirdNamesButton.style.display = "none";
+
+    // Enable the radio buttons.
+    var radios = document.getElementsByName("daysBack");
+
+    for (var i=0, iLen=radios.length; i<iLen; i++) {
+        radios[i].disabled = false;
+    } 
+
+    // Enable the county drop down list:
+    document.getElementById("county").disabled = false;
+
+}
+
+
+function showHideStartOverButton(){
+    let birdName = document.getElementById("birdNameInput");
+    let starOverButton = document.getElementById("startOver");
+    let messageDiv = document.getElementById("message");
+
+    // If the message that no bird names were found in the search is displayed, 
+    // the Start Over button should be displayed/visible.
+
+    if(starOverButton.style.display === "block"){
+        if(messageDiv.style.display === "none"){ 
+            starOverButton.style.display = "none";
+        }
+    }
+    else{
+        if(birdName.value !== ""){
+            starOverButton.style.display = "block";
+        }
+    }
 }
 
 
@@ -299,6 +350,9 @@ const searchButton = document.getElementById("searchForBirds");
     searchButton.addEventListener("click", validateEntry);
     searchButton.addEventListener("click", clearDataListTitle);
     searchButton.addEventListener("click", clearDataList);
+    searchButton.addEventListener("click", showHideStartOverButton);
+    
+
 
 
 const startOverButton = document.getElementById("startOver");
@@ -309,7 +363,18 @@ const startOverButton = document.getElementById("startOver");
     startOverButton.addEventListener("click", clearDataListTitle);
     startOverButton.addEventListener("click", clearDataList);
     startOverButton.addEventListener("click", enableEntryFields);
+    startOverButton.addEventListener("click", showHideStartOverButton);
+       
            
+
+const backToBirdNamesButton = document.getElementById("backToBirdNames");
+    // Clear the message div. Clear the bird name list. Validate the entry. 
+    backToBirdNamesButton.addEventListener("click", clearMessage);
+    backToBirdNamesButton.addEventListener("click", clearBirdNameList);
+    backToBirdNamesButton.addEventListener("click", validateEntry);
+    backToBirdNamesButton.addEventListener("click", clearDataListTitle);
+    backToBirdNamesButton.addEventListener("click", clearDataList);
+    backToBirdNamesButton.addEventListener("click", backToBirdNamesButtonClicked);
 
 
 
