@@ -34,6 +34,15 @@ body{
     
   }
 
+  /* This is for the Days Back radio button group */
+  fieldset{
+    font-size: 12pt;
+    width: 110px;
+    margin:auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    
+  }
 
   /* For the Search and Start Over Buttons */
   .buttons{
@@ -107,12 +116,12 @@ body{
   #dataTitle{
     text-align: center;
     font-size: 14pt;
-    /* font-weight:bold; */
     font-weight:500;
     padding: 5px;
     color: black;
     background-color: #FAEED1;
     border: 2px solid #607274;
+    /* The title wasn't aligned properly. I removed the width and margin, and let the flex styles handle the layout. */
     /* width: 340px; */
     /* margin: auto;  */
   }
@@ -122,8 +131,9 @@ body{
   display: flex;
   flex-direction: column;
   text-align: left;
-  /* width: 380px; */
   align-items:left;
+  /* The checklist data wasn't aligned properly. I removed the width and margin, and let the flex styles handle the layout. */
+  /* width: 380px; */
   /* margin: auto; */
 }
 
