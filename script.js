@@ -323,23 +323,24 @@ function backToBirdNamesButtonClicked(){
 
 
 function showHideStartOverButton(){
-    let birdName = document.getElementById("birdNameInput");
+
     let starOverButton = document.getElementById("startOver");
-    let messageDiv = document.getElementById("message");
 
-    // If the message that no bird names were found in the search is displayed, 
-    // the Start Over button should be displayed/visible.
+    // console.log(this.innerHTML);
+    // The element clicked is passed to the function as "this".
+    // Apparently, you don't need the ".value", just the "innerHTML" part.
+    // https://stackoverflow.com/questions/12024483/how-to-pass-parameter-to-function-using-in-addeventlistener
+    let buttonClicked = this.innerHTML;
 
-    if(starOverButton.style.display === "block"){
-        if(messageDiv.style.display === "none"){ 
+    if(buttonClicked === "Search"){
+        starOverButton.style.display = "block";
+    }
+    else{
+        if(buttonClicked === "Start Over"){
             starOverButton.style.display = "none";
         }
     }
-    else{
-        if(birdName.value !== ""){
-            starOverButton.style.display = "block";
-        }
-    }
+
 }
 
 
