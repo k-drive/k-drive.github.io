@@ -1,0 +1,175 @@
+
+body{
+    background-color: #c0c0c0;
+    /* background-image: url(background_image_03.jpg); */
+    margin: 50px 10px 10px 10px;
+    font-family: "Verdana", "sans-serif";
+    font-size: 14pt;
+  }
+
+
+  /* For the dropdown list of counties. */
+  #county{
+    padding: 5px;
+  }
+
+    /* For the dropdown list of counties. */
+  .inputGroup{
+      text-align: center;
+  }
+
+  /* For the county dropdown list. */
+  /* Modified inset/inner shadow effect code from:
+  https://www.codementor.io/@zara-z/how-to-make-an-inner-shadow-effect-with-css-1odkuw71cl */
+
+  select{
+    font-size: 12pt;
+    margin-right: 5px;
+    padding: 3px 15px 3px 5px;
+    margin-bottom: 10px;
+    width: 200px;
+    background-color: #607274;
+    color: white;
+    box-shadow: inset 2px 2px 3px 0 black, inset -2px -2px 3px 0 gray;
+    
+  }
+
+  /* This is for the Days Back radio button group */
+  fieldset{
+    font-size: 12pt;
+    width: 110px;
+    margin:auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    accent-color: #BC00B9;
+  }
+
+  /* For the Search and Start Over Buttons */
+  .buttons{
+    font-size: 14pt;
+    padding: 7px 20px;
+    border-radius: 10px;
+    background-color: #B9BC00;
+
+    border: 3px solid;
+    border-top-color: lightslategray;
+    border-left-color: lightslategray;
+    border-right-color: #505050;
+    border-bottom-color: #505050;
+    color: white;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 170px;
+    text-align: center;
+    display: block;
+  }
+
+  /* For the bird name text input box. */
+  #birdNameInput{
+    padding: 5px;
+    font-size: 14pt;
+    margin-bottom: 10px;
+    width: 240px;
+    border: solid 2px;
+    border-right-color: darkturquoise;
+    border-bottom-color: darkturquoise;
+    border-top-color: #007F7F;
+    border-left-color: #007F7F;
+    
+  }
+
+  /* For the search results list of bird names group/flex */
+  .birdNameList{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+  }
+
+  /* For the search results list of bird name items. */
+  .birdNameListItem{
+    text-align: center;
+    font-size: 12pt;        
+    color: black;
+    background-color: antiquewhite;
+    border: 2px solid #607274;
+    padding: 8px 5px;
+    border-radius: 5px;
+    width: 250px;
+    margin-bottom: 10px;
+  }
+
+  /* For the message that appears if no birds were found from the search. */
+  #message{
+    text-align: center;
+    font-size: 12pt;
+    font-weight: lighter;
+    padding: 10px;
+    color: black;
+    width: auto;
+    margin: auto;
+    margin-top: 5px;
+    background-color: antiquewhite;
+    border: 2px solid #607274;
+  }
+
+  /* When a bird name is selected, the search list results disappear and the selected name is changed to this title style. */
+  #dataTitle{
+    text-align: center;
+    font-size: 14pt;
+    font-weight:500;
+    padding: 5px;
+    color: black;
+    background-color: antiquewhite;
+    border: 2px solid #607274;
+    /* The title wasn't aligned properly. I removed the width and margin, and let the flex styles handle the layout. */
+    /* width: 340px; */
+    /* margin: auto;  */
+  }
+
+/* This is the parent div of the data and checklist links. */
+#dataList{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items:left;
+  /* The checklist data wasn't aligned properly. I removed the width and margin, and let the flex styles handle the layout. */
+  /* width: 380px; */
+  /* margin: auto; */
+}
+
+
+/* For the displayed data from the eBird API. */
+.birdChecklistData{
+  text-align: left;
+  font-size: 10pt;
+  font-weight: normal;
+  padding: 5px 10px;
+  color: white;
+  /* background-color: #6C71BD; */
+  background-color: #4F4F4F;
+  border: 2px solid #B5B5B5;
+  box-shadow: 2px 2px 4px #505050;
+  border-radius: 7px;
+  width: auto;
+  /* width: 335px; */
+  margin: 5px 10px 5px 10px;
+}
+
+/* For the link to the checklist under the displayed data from the API. */
+.birdChecklistLink a{
+    text-align: left;
+    font-size: 10pt;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 5px 10px;
+    color: white;
+    background-color: #4F4F4F;
+    /* background-color: #6C71BD; */
+    border: 2px solid #B5B5B5;
+    box-shadow: 2px 2px 4px #505050;
+    border-radius: 7px;
+    width: auto;
+    margin: 0px 10px 0px 10px;
+}
+

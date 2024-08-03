@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Recent Bird Sightings - eBird API</title>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <script src="script.js" defer></script>  
+  <script src="ohio_bird_codes_script.js" defer></script>    
+  <script src="ohio_bird_names_script.js" defer></script>    
+
+
+  <style>  </style> 
+  <script>  </script>
+
+</head>
+
+<body>
+
+  <div class = "inputGroup">
+
+    <input id="birdNameInput" type="text" placeholder="Please enter a bird name." />
+
+    <br>
+    <select name="county" id="county">
+      <option value="US-OH-035">Cuyahoga County</option>
+      <option value="US-OH-093">Lorain County</option>
+      <option value="US-OH-103">Medina County</option>
+      <option value="US-OH-153">Summit County</option>
+    </select>
+    <br>
+
+    <fieldset>
+      <legend>Days back:</legend>
+      <input type="radio" id="2" 
+              name="daysBack" value="2" checked> 
+      <label for="2">2</label> 
+
+      <input type="radio" id="6" 
+              name="daysBack" value="6"> 
+      <label for="6">6</label> 
+    </fieldset>
+
+
+    <div id="searchForBirds" class="buttons">Search</div>
+    <div id="startOver" class="buttons" style="display: none;">Start Over</div>
+    <div id="backToBirdNames" class="buttons" style="display: none;">Back to Names</div>
+  </div>    
+
+  <div id="birdNameList" class="birdNameList"></div>
+   
+  <div id="dataTitle" style="display: none;"></div>
+  <div id="dataList"></div>
+
+  <div id="message" style="display: none;"></div>
+
+
+
+</body>
+
+</html>
+
