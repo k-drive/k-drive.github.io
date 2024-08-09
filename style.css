@@ -44,6 +44,10 @@ body{
     accent-color: #BC00B9;
   }
 
+  a.noLines{
+    text-decoration: none;
+  }
+
   /* For the Search and Start Over Buttons */
   .buttons{
     font-size: 14pt;
@@ -62,6 +66,14 @@ body{
     width: 170px;
     text-align: center;
     display: block;
+  }
+
+  .buttonsSmall{
+    background-color: #B9BC00;
+    font-size: 12pt;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 15px;
   }
 
   /* For the bird name text input box. */

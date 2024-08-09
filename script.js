@@ -1,4 +1,35 @@
 
+function displayLinkToSpeciesMap(speciesCode){
+    let linkButton = document.getElementById("linkToSpeciesMap");
+    linkButton.style.display = "block";
+
+    let linkAnchor = document.getElementById("anchorToSpeciesMap");
+    let urlValue = linkAnchor.getAttribute("href");
+    console.log(urlValue);
+
+    // Note: The current month would be d.getMonth - 1 because the JS data is zero-based.
+    // You want to go back one month. If it is the 5th of the month or earlier to the 1st then,
+    // sightings on the last day of the previous month (or a few days earlier) would not be shown on the Species Map 
+    // because the criteria would only be for the current month. Getting more data is better even though it may be a month past.
+    // You can only use months as criteria on the Species Map.
+    const d = new Date();
+    let lastMonth = d.getMonth();    
+
+    let urlStart = "https://ebird.org/map/";
+    // The species code is coming in as an argument to this function.
+    let urlMiddle = "?neg=true&env.minX=-82.68375908394206&env.minY=41.071905363975624&env.maxX=-80.92594658394206&env.maxY=41.705531369789014&zh=true&gp=false&ev=Z&excludeExX=false&excludeExAll=false&mr=on&"
+
+    // You could use the current month as the end month.
+    // Using the end month as 12 will always work because there won't be any sightings in the future.
+    let urlMonths = "bmo=" + lastMonth + "&emo=12&yr=cur";   
+    
+    let fullURL = urlStart + speciesCode + urlMiddle + urlMonths;
+    console.log(fullURL);
+
+    linkAnchor.setAttribute("href", fullURL);
+}
+
+
 function reformatDateTime(dateAndTime){
     // yyyy-mm-dd hh:mm = format from eBird API data.
     let dTsplit = dateAndTime.split(" ");
@@ -143,6 +174,8 @@ async function fetchData(speciesCode){
 
             }
             else{
+                displayLinkToSpeciesMap(speciesCode);  // Display the button to the link to the Species Map only if there are recent sightings.
+
                 addDataDiv(data);
             }
         }
@@ -250,6 +283,14 @@ function validateEntry(){
 
 // Because clicking the Search button and Start Over button need different actions, 
 // it was best to separate the clear functions and use event listeners. 
+
+// This function hides the button to open the eBird Explore Species Map zoomed in to the Cuyahoga County area.
+function hideSpeciesMapButton(){
+    let linkButton = document.getElementById("linkToSpeciesMap");
+    linkButton.style.display = "none";
+
+}
+
 
 // This function resets the placeholder text in the input text box. 
 function clearInputBox(){
@@ -365,7 +406,8 @@ const startOverButton = document.getElementById("startOver");
     startOverButton.addEventListener("click", clearDataList);
     startOverButton.addEventListener("click", enableEntryFields);
     startOverButton.addEventListener("click", showHideStartOverButton);
-       
+    startOverButton.addEventListener("click", hideSpeciesMapButton);
+         
            
 
 const backToBirdNamesButton = document.getElementById("backToBirdNames");
@@ -376,6 +418,7 @@ const backToBirdNamesButton = document.getElementById("backToBirdNames");
     backToBirdNamesButton.addEventListener("click", clearDataListTitle);
     backToBirdNamesButton.addEventListener("click", clearDataList);
     backToBirdNamesButton.addEventListener("click", backToBirdNamesButtonClicked);
+    backToBirdNamesButton.addEventListener("click", hideSpeciesMapButton);
 
 
 
