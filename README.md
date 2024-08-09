@@ -9,3 +9,5 @@ If a species has been reported recently, my project will show the date, time, lo
 
 It should be noted that this eBird API endpoint only retrieves the most recent observation for a location.
 
+8/9/2024 - I added a button that is a link to the eBird Explore - Species Map for the species selected. The webpage opens with the map zoomed to Cuyahoga County with markers/sightings for the previous month and the current month. The Species Map criteria can only be set to months not specific days so, I thought using the previous month as a starting place was a good idea. If a search is made during the first week of a month, and the criteria for the map was only the current month, the search would miss sightings for the previous week because it was the previous month. 
+
