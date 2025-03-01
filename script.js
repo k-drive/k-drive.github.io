@@ -242,7 +242,12 @@ function addBirdName(birdNameFound, idx){
 // The entry need only be a partial match of characters. 
 function validateEntry(){
     let entry = document.getElementById("birdNameInput").value.toLowerCase();
+    // The code needs to trim spaces at the beginning and end of the input entry or the input entry will not be seen as valid. 
+    // This method returns a new string with whitespace removed from both ends, without modifying the original string. 
+    // But, you can put it back into the original variable.
+    entry = entry.trim();
     console.log("]" + entry + "[");
+
 
     if(entry === ""){
         console.log("Please make an entry.");   
