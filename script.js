@@ -146,7 +146,13 @@ async function fetchData(speciesCode){
 
         // Limited to 2 days ago (includes today).
         // const apiUrl = "https://api.ebird.org/v2/data/obs/" + regionCode + "/recent/" + speciesCode + "?back=2";
-        const apiUrl = "https://api.ebird.org/v2/data/obs/" + regionCode + "/recent/" + speciesCode + "?back=" + daysBack;
+        // const apiUrl = "https://api.ebird.org/v2/data/obs/" + regionCode + "/recent/" + speciesCode + "?back=" + daysBack;
+        // The last part of this apiUrl is from a fix from a person in the FB eBird Community Group. 
+        // There was a glossy ibis being reported at the Chippewa Inlet Trail South in Medina County.
+        // It wasn't being picked up by this code. There was a sora there that was being retreived.
+        // This may be that rare birds are hidden in certain areas. I could not get the ibis in the Explore Species Map or the Hot Spot page. 
+        // But, I knew Deb Sweeney had the bird. So, I looked for that checklist. Apparently, rare birds do appear in the individual checklists.
+        const apiUrl = "https://api.ebird.org/v2/data/obs/" + regionCode + "/recent/" + speciesCode + "?back=" + daysBack + "&includeProvisional=1";
 
         console.log(apiUrl);
 
