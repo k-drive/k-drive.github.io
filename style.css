@@ -124,6 +124,15 @@ body{
     border: 2px solid #607274;
   }
 
+    /* media query for viewing on a computer. So the titles don't go to the edges.*/
+    @media(min-width: 750px){
+      #message{
+      /* Try a percent width for viewing on a computer.*/
+        width: 30%;
+        margin: auto;
+      }
+    }
+
   /* When a bird name is selected, the search list results disappear and the selected name is changed to this title style. */
   #dataTitle{
     text-align: center;
