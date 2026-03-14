@@ -15,5 +15,7 @@ The webpage opens with the map zoomed to Cuyahoga County with markers/sightings 
 
 The eBird website requires a person to be logged in to use the Species Map. But, after logging in, the user will stil be presented with the species' sightings markers in the zoomed-in map of Northeast Ohio. The website doesn't lose the criteria set before the login.
 
+3/14/2026 - Happy pi day! 
 
+I added an HTML page and an images folder with some plants. These photos are not mine. I got almost all of them from iNaturalist. I have been watching "In Defense of Plants" videos on YouTube by  Matt Candeias. I wanted a quick reference for some rare plants that have been found in Northeast Ohio according to the iNaturalist records. All of these observations are obscured - which makes sense. They are rare. 
 
